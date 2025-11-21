@@ -1,0 +1,9 @@
+{
+  user(login: "octocat") {
+    login
+    name
+    followers {
+      totalCount
+    }
+  }
+}

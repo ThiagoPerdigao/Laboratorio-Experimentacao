@@ -1,0 +1,14 @@
+{
+  user(login: "octocat") {
+    login
+    name
+    repositories(first: 20) {
+      nodes {
+        name
+        issues(first: 20) {
+          totalCount
+        }
+      }
+    }
+  }
+}
