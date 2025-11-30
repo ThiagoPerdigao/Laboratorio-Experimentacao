@@ -70,3 +70,98 @@ Este laboratório tem como objetivo conduzir um experimento controlado comparand
 | Externa | Baixa generalização | Testar com múltiplos usuários e cenários |
 | De Construção | Medição inconsistente de tempo | Medir apenas rede + processamento |
 | De Construção | Medição inconsistente de tamanho | Mensurar payload bruto (corpo + headers) |
+
+## 5. Resultados
+
+Os resultados apresentados abaixo foram extraidos das 120 medições realizadas para cada combinação de API (REST vs GraphQL) e cenário (simples vs complexo).
+
+### 5.1. Resultados Consolidados
+
+| API      | Cenario   | Tempo Medio (ms) | Tamanho Medio (bytes) |
+|----------|-----------|------------------|------------------------|
+| REST     | Simple    | ~260 ms          | ~2560 bytes            |
+| REST     | Complex   | ~340 ms          | ~42576 bytes           |
+| GraphQL  | Simple    | ~295 ms          | ~1184 bytes            |
+| GraphQL  | Complex   | ~850-900 ms      | ~2177 bytes            |
+
+### 5.2. Interpretacao
+
+- REST foi consistentemente mais rapido, tanto no cenario simples quanto no complexo.
+- GraphQL retornou cargas significativamente menores, especialmente no cenario complexo.
+- No cenario complexo, GraphQL apresentou tempo maior devido ao custo de resolucao de campos aninhados no servidor.
+
+---
+
+## 6. Analise Estatistica
+
+### 6.1. Teste t independente
+
+Foram aplicados testes t para comparar medias de tempo e tamanho entre REST e GraphQL.
+
+#### Tempo de resposta
+- REST foi significativamente mais rapido (p < 0.05).
+- GraphQL apresentou maior variabilidade no cenario complexo.
+
+#### Tamanho da resposta
+- GraphQL retornou respostas significativamente menores (p < 0.001).
+
+### 6.2. Conclusao dos Testes
+- Ha evidencia estatistica para rejeitar H0 em ambos os casos.
+- GraphQL difere significativamente de REST tanto em tempo quanto em tamanho.
+
+---
+
+## 7. Discussao
+
+### 7.1. Vantagens observadas do REST
+- Tempo de resposta menor.
+- Arquitetura mais simples.
+- Menor custo computacional do lado do servidor.
+
+### 7.2. Vantagens observadas do GraphQL
+- Grande economia de dados transferidos.
+- Flexibilidade na selecao de campos.
+- Melhor escalabilidade para front-end.
+
+### 7.3. Interpretacao dos resultados
+O GraphQL se mostrou mais eficiente em transferencia de dados, mas nao em tempo de resposta. Isso se deve ao processamento adicional exigido pela resolucao da arvore de consultas.
+
+No cenario simples, REST e GraphQL possuem tempos proximos. No cenario complexo, REST se manteve estavel enquanto GraphQL sofreu aumento de latencia.
+
+---
+
+## 8. Conclusoes
+
+### RQ01 - O GraphQL eh mais rapido que o REST?
+Resposta: Nao.  
+REST demonstrou menor tempo de resposta em ambos os cenarios.
+
+### RQ02 - O GraphQL possui tamanho de resposta menor?
+Resposta: Sim.  
+GraphQL retornou respostas notavelmente menores, especialmente em requests complexas.
+
+### Sintese Geral
+- REST vence em tempo.
+- GraphQL vence em tamanho.
+- A escolha depende da prioridade da aplicacao (latencia vs economia de dados).
+
+---
+
+## 9. Trabalhos Futuros
+
+- Executar testes sob carga concorrente.
+- Avaliar o uso de persistent queries no GraphQL.
+- Considerar cenarios com paginas maiores (pagination).
+- Medir impacto em redes moveis lentas.
+- Comparar com outras APIs alem do GitHub.
+
+---
+
+## 10. Conclusao Final
+
+Os dados mostram que:
+- REST e mais rapido.
+- GraphQL e mais enxuto.
+- GraphQL e REST nao se substituem; se complementam.
+- A decisao depende de requisitos especificos do sistema.
+

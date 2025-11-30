@@ -1,0 +1,10 @@
+ESTATÍSTICAS - EXPERIMENTO GraphQL vs REST
+==================================================
+
+                 duration_ms                                  size_bytes                    
+                       count    mean     std     min      max       mean   std    min    max
+api     scenario                                                                            
+GraphQL complex           30  838.83  193.03  643.98  1398.66    2177.20  0.66   2175   2178
+        simple            30  287.19   23.42  253.73   356.69    1184.30  0.84   1183   1185
+REST    complex           30  349.97   53.32  297.74   569.87   42575.40  0.56  42574  42576
+        simple            30  263.94   26.73  236.39   353.04    2560.27  0.69   2559   2561

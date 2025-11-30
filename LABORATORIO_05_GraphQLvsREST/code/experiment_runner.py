@@ -6,7 +6,7 @@ from graphql_query import graphql_request
 
 # Configurações
 GRAPHQL_ENDPOINT = "https://api.github.com/graphql"
-TOKEN = os.getenv("TOKEN")
+TOKEN = "TOKEN"
 
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
