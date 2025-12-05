@@ -84,7 +84,22 @@ Os resultados apresentados abaixo foram extraidos das 120 medições realizadas 
 | GraphQL  | Simple    | ~295 ms          | ~1184 bytes            |
 | GraphQL  | Complex   | ~850-900 ms      | ~2177 bytes            |
 
-### 5.2. Interpretacao
+
+### 5.2. Visualização dos dados
+
+#### 5.2.5. Gráfico Temporal - Evolução temporal dos tempos
+![Gráfico Temporal](results/charts/1_grafico_temporal.png)
+
+#### 5.2.2. Heatmap de Performance - Mapa de calor da performance
+![Heatmap de Performance](results/charts/2_heatmap_performance.png)
+
+#### 5.2.3. Violin Plots Combinados - Distribuições completas
+![Violin Plots](results/charts/3_violin_plots_combinados.png)
+
+#### 5.2.4. Scatter de Correlação - Relação tempo×tamanho com correlação
+![Scatter de Correlação](results/charts/4_scatter_correlacao.png)
+
+### 5.3. Interpretacao
 
 - REST foi consistentemente mais rapido, tanto no cenario simples quanto no complexo.
 - GraphQL retornou cargas significativamente menores, especialmente no cenario complexo.
